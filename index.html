@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novelxplin - N-Store</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --glass-bg: rgba(30, 41, 59, 0.7);
+            --text-main: #f8fafc;
+            --text-muted: #cbd5e1;
+            --accent: #3b82f6;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(15,23,42,1) 0%, rgba(30,41,59,1) 100%);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            background: -webkit-linear-gradient(#60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p.subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        /* Glassmorphism Cards */
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card h2 {
+            margin-top: 0;
+            color: var(--accent);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 0.5rem;
+        }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Novelxplin / N-Store</h1>
+        <p class="subtitle">Premium Audio Novels & AI Automation Services</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- About Section -->
+        <div class="card" id="about">
+            <h2>About Us</h2>
+            <p>Welcome to <strong>Novelxplin</strong>. We provide high-quality translated audio novels and specialized Telegram bot automation services (N-Store). Our goal is to deliver seamless digital content and premium community access to our subscribers.</p>
+        </div>
+
+        <!-- Contact Section for Razorpay -->
+        <div class="card" id="contact">
+            <h2>Contact Us</h2>
+            <p>If you have any issues with your payments or subscriptions, please reach out to us:</p>
+            <ul>
+                <li><strong>Email:</strong> support@yourdomain.com <!-- YAHAN APNA EMAIL DALO --></li>
+                <li><strong>Telegram Support:</strong> <a href="https://t.me/Novelxplin" target="_blank">@Novelxplin</a></li>
+                <li><strong>Operating Address:</strong> Ulhasnagar, Maharashtra, India <!-- YAHAN APNA CITY DAL SAKTE HO --></li>
+            </ul>
+        </div>
+
+        <!-- Privacy Policy -->
+        <div class="card" id="privacy">
+            <h2>Privacy Policy</h2>
+            <p>We respect your privacy. We only collect basic information required to process your orders, such as your Telegram ID and transaction reference numbers. We do not store your credit card or bank details on our servers. All payments are securely processed via Razorpay.</p>
+        </div>
+
+        <!-- Terms and Conditions -->
+        <div class="card" id="terms">
+            <h2>Terms & Conditions</h2>
+            <p>By using the N-Store bot and purchasing channel subscriptions, you agree to the following terms:</p>
+            <ul>
+                <li>All invite links generated are for single-use only.</li>
+                <li>Sharing premium content outside the private channels is strictly prohibited.</li>
+                <li>We reserve the right to revoke access if a user is found violating community guidelines.</li>
+            </ul>
+        </div>
+
+        <!-- Cancellation & Refund Policy (Crucial for Approval) -->
+        <div class="card" id="refund">
+            <h2>Cancellation & Refund Policy</h2>
+            <p>Due to the digital nature of our services (instant invite links to premium content), <strong>all sales are final</strong>. However:</p>
+            <ul>
+                <li>If your payment is deducted but you do not receive the automated invite link within 24 hours, you are eligible for a 100% refund.</li>
+                <li>Refunds will be processed to the original payment method within 5-7 business days.</li>
+                <li>Cancellations are not applicable once the invite link has been successfully generated and delivered to your Telegram inbox.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Novelxplin. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
