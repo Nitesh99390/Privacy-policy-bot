@@ -3,477 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novelxplin – Digital Content & Community Platform</title>
+    <title>Novelxplin Tech - Software & Automation Services</title>
     <style>
         :root {
-            --bg: #0a0f1e;
-            --surface: #111827;
-            --surface2: #1e2a3a;
-            --border: rgba(255,255,255,0.08);
-            --accent: #3b82f6;
-            --accent-light: #60a5fa;
-            --green: #10b981;
-            --text: #f1f5f9;
-            --muted: #94a3b8;
-            --radius: 16px;
+            --bg-color: #f4f7f6;
+            --text-main: #333;
+            --text-muted: #666;
+            --accent: #2563eb;
+            --card-bg: #ffffff;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-        }
-
-        /* ── NAV ── */
-        nav {
-            background: var(--surface);
-            border-bottom: 1px solid var(--border);
-            padding: 16px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .nav-brand { display: flex; align-items: center; gap: 10px; }
-        .nav-logo {
-            width: 36px; height: 36px;
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 18px;
-        }
-        .nav-name { font-weight: 700; font-size: 17px; }
-        .nav-links { display: flex; gap: 20px; }
-        .nav-links a {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover { color: var(--accent-light); }
-
-        /* ── HERO ── */
-        .hero {
-            text-align: center;
-            padding: 80px 24px 60px;
-            background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(59,130,246,0.15), transparent);
-            border-bottom: 1px solid var(--border);
-        }
-        .hero-badge {
-            display: inline-block;
-            background: rgba(59,130,246,0.12);
-            border: 1px solid rgba(59,130,246,0.3);
-            color: var(--accent-light);
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            padding: 6px 16px;
-            border-radius: 40px;
-            margin-bottom: 20px;
-        }
-        .hero h1 {
-            font-size: clamp(2rem, 6vw, 3.5rem);
-            font-weight: 800;
-            background: linear-gradient(135deg, #f1f5f9 30%, #60a5fa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 14px;
-            line-height: 1.2;
-        }
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--muted);
-            max-width: 560px;
-            margin: 0 auto;
-        }
-
-        /* ── LAYOUT ── */
-        .container {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 48px 24px 80px;
-        }
-
-        /* ── SECTION CARDS ── */
-        .section {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 32px;
-            margin-bottom: 24px;
-            position: relative;
-            overflow: hidden;
-        }
-        .section::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 4px; height: 100%;
-            background: linear-gradient(180deg, var(--accent), transparent);
-        }
-        .section-label {
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--accent-light);
-            margin-bottom: 8px;
-        }
-        .section h2 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--text);
-        }
-        .section p, .section li {
-            color: var(--muted);
-            font-size: 0.95rem;
-            margin-bottom: 10px;
-        }
-        .section ul {
-            padding-left: 20px;
-        }
-        .section li { margin-bottom: 8px; }
-        .section strong { color: var(--text); }
-
-        /* ── CONTACT GRID ── */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 12px;
-            margin-top: 16px;
-        }
-        .contact-item {
-            background: var(--surface2);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 16px;
-        }
-        .contact-label {
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            color: var(--accent-light);
-            margin-bottom: 6px;
-        }
-        .contact-value {
-            font-size: 14px;
-            color: var(--text);
-            font-weight: 500;
-        }
-        .contact-value a {
-            color: var(--text);
-            text-decoration: none;
-        }
-        .contact-value a:hover { color: var(--accent-light); }
-
-        /* ── HIGHLIGHT BOX ── */
-        .highlight {
-            background: rgba(16,185,129,0.08);
-            border: 1px solid rgba(16,185,129,0.2);
-            border-radius: 10px;
-            padding: 14px 18px;
-            margin: 14px 0;
-            color: var(--green) !important;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-        .warn-box {
-            background: rgba(59,130,246,0.06);
-            border: 1px solid rgba(59,130,246,0.2);
-            border-radius: 10px;
-            padding: 14px 18px;
-            margin: 14px 0;
-            font-size: 0.9rem;
-        }
-
-        /* ── TOC ── */
-        .toc {
-            background: var(--surface2);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 24px 28px;
-            margin-bottom: 32px;
-        }
-        .toc h3 {
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--muted);
-            margin-bottom: 14px;
-        }
-        .toc-list {
-            list-style: none;
-            padding: 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 6px;
-        }
-        .toc-list li a {
-            color: var(--accent-light);
-            text-decoration: none;
-            font-size: 13px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 4px 0;
-        }
-        .toc-list li a:hover { text-decoration: underline; }
-
-        /* ── FOOTER ── */
-        footer {
-            background: var(--surface);
-            border-top: 1px solid var(--border);
-            text-align: center;
-            padding: 32px 24px;
-            color: var(--muted);
-            font-size: 13px;
-        }
-        footer strong { color: var(--accent-light); }
-
-        @media (max-width: 600px) {
-            .section { padding: 22px 18px; }
-            nav { padding: 12px 16px; }
-            .nav-links { display: none; }
-        }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 0; line-height: 1.6; }
+        header { text-align: center; padding: 4rem 2rem; background: #ffffff; border-bottom: 1px solid #e5e7eb; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        h1 { font-size: 2.5rem; margin: 0; color: #1e293b; }
+        .subtitle { color: var(--text-muted); font-size: 1.2rem; margin-top: 0.5rem; }
+        .container { max-width: 800px; margin: 2rem auto; padding: 0 1.5rem; }
+        .card { background: var(--card-bg); border: 1px solid #e5e7eb; border-radius: 8px; padding: 2rem; margin-bottom: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        h2 { margin-top: 0; color: var(--accent); font-size: 1.5rem; border-bottom: 2px solid #eff6ff; padding-bottom: 0.5rem; }
+        ul { padding-left: 1.5rem; color: var(--text-muted); }
+        li { margin-bottom: 0.5rem; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        footer { text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-<nav>
-    <div class="nav-brand">
-        <div class="nav-logo">N</div>
-        <span class="nav-name">Novelxplin</span>
-    </div>
-    <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a href="#privacy">Privacy</a>
-        <a href="#terms">Terms</a>
-        <a href="#refund">Refund</a>
-    </div>
-</nav>
+    <header>
+        <h1>Novelxplin Tech Solutions</h1>
+        <p class="subtitle">Custom Chatbot Development & IT Automation Services</p>
+    </header>
 
-<div class="hero">
-    <div class="hero-badge">Trusted Digital Platform</div>
-    <h1>Novelxplin</h1>
-    <p>A premium digital community &amp; subscription platform — providing curated content access and community memberships.</p>
-</div>
+    <div class="container">
+        <div class="card">
+            <h2>About Us</h2>
+            <p>Novelxplin Tech Solutions is a freelance software development agency specializing in building custom automation tools, backend APIs, and conversational chatbots for businesses. We help streamline operations through efficient code and seamless integrations.</p>
+        </div>
 
-<div class="container">
+        <div class="card">
+            <h2>Our Services & Pricing</h2>
+            <ul>
+                <li><strong>Custom Bot Development:</strong> Setup and deployment of automated chat solutions.</li>
+                <li><strong>Server Maintenance:</strong> Monthly upkeep and bug-fixing for existing software.</li>
+                <li><strong>API Integration:</strong> Connecting third-party services to your existing infrastructure.</li>
+            </ul>
+        </div>
 
-    <div class="toc">
-        <h3>Quick Navigation</h3>
-        <ul class="toc-list">
-            <li><a href="#about">→ About Us</a></li>
-            <li><a href="#services">→ Our Services</a></li>
-            <li><a href="#contact">→ Contact Us</a></li>
-            <li><a href="#privacy">→ Privacy Policy</a></li>
-            <li><a href="#terms">→ Terms &amp; Conditions</a></li>
-            <li><a href="#refund">→ Refund Policy</a></li>
-            <li><a href="#shipping">→ Delivery Policy</a></li>
-            <li><a href="#security">→ Payment Security</a></li>
-        </ul>
-    </div>
+        <div class="card">
+            <h2>Contact Us</h2>
+            <p>For project inquiries or billing support, please reach out:</p>
+            <ul>
+                <li><strong>Email:</strong> <a href="mailto:bhuimharniteshbhuimhar@gmail.com">bhuimharniteshbhuimhar@gmail.com</a></li>
+                <li><strong>Phone / WhatsApp:</strong> +91 7718906857</li>
+                <li><strong>Operating Address:</strong> Ulhasnagar, Maharashtra, India</li>
+            </ul>
+        </div>
 
-    <!-- ABOUT -->
-    <div class="section" id="about">
-        <div class="section-label">Company</div>
-        <h2>About Us</h2>
-        <p>
-            <strong>Novelxplin</strong> is a digital content subscription and community access platform based in Ulhasnagar, Maharashtra, India. We operate the <strong>N-Store</strong> — a Telegram-based marketplace where users can purchase memberships to curated private digital communities.
-        </p>
-        <p>
-            Our platform connects content creators with their audience through a secure, automated subscription system. Members gain exclusive access to premium digital communities covering topics such as education, entertainment, lifestyle, and self-improvement.
-        </p>
-        <div class="warn-box">
-            <strong>Business Category:</strong> Digital Subscription Services / Online Community Membership Platform
+        <div class="card">
+            <h2>Terms & Conditions</h2>
+            <ul>
+                <li>Project timelines are mutually agreed upon before commencement.</li>
+                <li>Service access or software code is delivered only after successful payment processing.</li>
+                <li>We reserve the right to suspend maintenance services in case of policy violations.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Privacy Policy</h2>
+            <p>We collect basic client information (Name, Email, Contact details) solely for project communication and billing purposes. We use secure payment gateways (Razorpay) and do not store any sensitive financial or credit card information on our servers.</p>
+        </div>
+
+        <div class="card">
+            <h2>Cancellation & Refund Policy</h2>
+            <p>Due to the customized nature of software development, please note our refund terms:</p>
+            <ul>
+                <li><strong>Software Development:</strong> If we fail to deliver the software within the agreed timeframe, a 100% refund will be initiated.</li>
+                <li><strong>Maintenance Services:</strong> Once a monthly maintenance cycle begins, cancellations will apply to the next billing cycle. No partial refunds are provided for active months.</li>
+                <li>Approved refunds will be credited back to the original payment source within 5-7 business days.</li>
+            </ul>
         </div>
     </div>
 
-    <!-- SERVICES -->
-    <div class="section" id="services">
-        <div class="section-label">What We Offer</div>
-        <h2>Our Services</h2>
-        <p>Novelxplin provides the following digital services:</p>
-        <ul>
-            <li><strong>Private Community Memberships</strong> — One-time purchase access to exclusive Telegram channels and groups.</li>
-            <li><strong>Digital Content Subscriptions</strong> — Access to curated digital content libraries managed by verified creators.</li>
-            <li><strong>Automated Access Delivery</strong> — Instant, automated delivery of membership links upon successful payment.</li>
-            <li><strong>N-Store Marketplace</strong> — A Telegram Mini App storefront for browsing and purchasing available community memberships.</li>
-        </ul>
-        <p>All services are entirely digital in nature. No physical goods are shipped.</p>
-    </div>
-
-    <!-- CONTACT -->
-    <div class="section" id="contact">
-        <div class="section-label">Get In Touch</div>
-        <h2>Contact Us</h2>
-        <p>For any queries regarding payments, subscriptions, or general support, please reach out via:</p>
-        <div class="contact-grid">
-            <div class="contact-item">
-                <div class="contact-label">Email</div>
-                <div class="contact-value"><a href="mailto:bhuimharniteshbhuimhar@gmail.com">bhuimharniteshbhuimhar<br>@gmail.com</a></div>
-            </div>
-            <div class="contact-item">
-                <div class="contact-label">WhatsApp</div>
-                <div class="contact-value"><a href="https://wa.me/917718906857" target="_blank">+91 7718906857</a></div>
-            </div>
-            <div class="contact-item">
-                <div class="contact-label">Telegram Support</div>
-                <div class="contact-value"><a href="https://t.me/Novelxplin" target="_blank">@Novelxplin</a></div>
-            </div>
-            <div class="contact-item">
-                <div class="contact-label">Business Address</div>
-                <div class="contact-value">Ulhasnagar, Maharashtra – 421003, India</div>
-            </div>
-        </div>
-        <p style="margin-top:16px; font-size:13px;">
-            <strong>Support Hours:</strong> Monday to Saturday, 10:00 AM – 8:00 PM IST<br>
-            <strong>Response Time:</strong> Within 24 hours
-        </p>
-    </div>
-
-    <!-- PRIVACY -->
-    <div class="section" id="privacy">
-        <div class="section-label">Legal</div>
-        <h2>Privacy Policy</h2>
-        <p><em>Last updated: June 2026</em></p>
-        <p>
-            At Novelxplin, your privacy is our priority. This policy explains what data we collect, how we use it, and how we protect it.
-        </p>
-        <p><strong>Information We Collect:</strong></p>
-        <ul>
-            <li>Telegram User ID (for order processing and access delivery)</li>
-            <li>Transaction reference numbers (for order verification)</li>
-            <li>Channel subscription records (to track your purchased memberships)</li>
-        </ul>
-        <p><strong>What We Do NOT Collect:</strong></p>
-        <ul>
-            <li>Credit/debit card numbers or banking credentials</li>
-            <li>Aadhaar, PAN, or any government ID</li>
-            <li>Personal address or biometric data</li>
-        </ul>
-        <div class="highlight">
-            ✓ All payment processing is handled exclusively by Razorpay. We never see or store your payment credentials.
-        </div>
-        <p><strong>How We Use Your Data:</strong></p>
-        <ul>
-            <li>To process your orders and deliver subscription access</li>
-            <li>To provide customer support</li>
-            <li>To send important service notifications via Telegram</li>
-        </ul>
-        <p><strong>Data Retention:</strong> Your subscription records are retained for a minimum of 1 year for support and audit purposes. You may request deletion by contacting our support.</p>
-        <p><strong>Third-Party Services:</strong> We use Razorpay for payment processing. Please review <a href="https://razorpay.com/privacy/" target="_blank" style="color:var(--accent-light)">Razorpay's Privacy Policy</a> for details on how they handle payment data.</p>
-        <p><strong>Governing Law:</strong> This policy is governed by the laws of India, in accordance with the Information Technology Act, 2000.</p>
-    </div>
-
-    <!-- TERMS -->
-    <div class="section" id="terms">
-        <div class="section-label">Legal</div>
-        <h2>Terms &amp; Conditions</h2>
-        <p><em>Last updated: June 2026</em></p>
-        <p>By purchasing any subscription through N-Store, you agree to the following terms:</p>
-        <ul>
-            <li><strong>Eligibility:</strong> You must be 13 years or older to use our services.</li>
-            <li><strong>Single-Use Invite Links:</strong> All generated invite links are one-time use only and expire within 7 days of issuance.</li>
-            <li><strong>No Sharing:</strong> Sharing, reselling, or redistributing purchased invite links is strictly prohibited and will result in immediate access revocation without refund.</li>
-            <li><strong>Content Ownership:</strong> All content within premium communities belongs to the respective creators. Novelxplin facilitates access only.</li>
-            <li><strong>Platform Usage:</strong> Our services are accessed through Telegram. You must comply with Telegram's Terms of Service.</li>
-            <li><strong>Account Responsibility:</strong> You are responsible for maintaining the security of your Telegram account.</li>
-            <li><strong>Service Modifications:</strong> We reserve the right to modify, suspend, or discontinue any service with reasonable notice.</li>
-        </ul>
-        <p>Continued use of our services constitutes acceptance of these terms.</p>
-    </div>
-
-    <!-- REFUND -->
-    <div class="section" id="refund">
-        <div class="section-label">Legal</div>
-        <h2>Cancellation &amp; Refund Policy</h2>
-        <p><em>Last updated: June 2026</em></p>
-        <p>We offer a clear and fair refund policy for all digital purchases made through N-Store:</p>
-
-        <div class="highlight">
-            ✓ If your payment is deducted but the invite link is NOT delivered within 24 hours, you are eligible for a 100% refund.
-        </div>
-
-        <p><strong>Refund Eligibility:</strong></p>
-        <ul>
-            <li>Payment deducted but invite link not received within 24 hours → Full refund</li>
-            <li>Technical error resulting in duplicate charges → Full refund of duplicate amount</li>
-            <li>Service unavailable at time of purchase → Full refund</li>
-        </ul>
-
-        <p><strong>Non-Refundable Cases:</strong></p>
-        <ul>
-            <li>Invite link has been successfully delivered to your Telegram account</li>
-            <li>User voluntarily left the channel after joining</li>
-            <li>Account banned due to violation of community or Telegram guidelines</li>
-            <li>Change of mind after successful delivery</li>
-        </ul>
-
-        <p><strong>Refund Process:</strong></p>
-        <ul>
-            <li>Contact us at <a href="mailto:bhuimharniteshbhuimhar@gmail.com" style="color:var(--accent-light)">bhuimharniteshbhuimhar@gmail.com</a> or <a href="https://t.me/Novelxplin" style="color:var(--accent-light)">@Novelxplin</a> with your Order ID.</li>
-            <li>Refunds are processed within <strong>5–7 business days</strong> to the original payment method.</li>
-            <li>Razorpay facilitates the refund; bank processing time may vary.</li>
-        </ul>
-
-        <p><strong>Cancellations:</strong> As all services are digital and delivered instantly, order cancellations are not possible once processing has begun. If you have not yet received the invite link, please contact support immediately.</p>
-    </div>
-
-    <!-- SHIPPING/DELIVERY -->
-    <div class="section" id="shipping">
-        <div class="section-label">Delivery</div>
-        <h2>Delivery Policy</h2>
-        <p>Novelxplin provides <strong>100% digital services</strong>. There is no physical shipping involved.</p>
-        <ul>
-            <li><strong>Delivery Method:</strong> Automated Telegram message containing your one-time invite link.</li>
-            <li><strong>Delivery Timeline:</strong> Instant — within seconds of payment confirmation via Razorpay webhook.</li>
-            <li><strong>Delivery Failure:</strong> In the rare case of delivery failure (bot error, network issue), we guarantee re-delivery within 24 hours upon contacting support.</li>
-        </ul>
-        <div class="warn-box">
-            <strong>Note:</strong> Ensure you have started a conversation with our Telegram bot (<a href="https://t.me/Novelxplin" style="color:var(--accent-light)">@Novelxplin</a>) before making a purchase, otherwise the bot cannot deliver your invite link.
-        </div>
-    </div>
-
-    <!-- SECURITY -->
-    <div class="section" id="security">
-        <div class="section-label">Trust &amp; Safety</div>
-        <h2>Payment Security</h2>
-        <p>We take the security of your payments seriously. Here's how we protect you:</p>
-        <ul>
-            <li><strong>Razorpay Powered:</strong> All transactions are processed through Razorpay, a PCI-DSS Level 1 certified payment gateway.</li>
-            <li><strong>No Card Storage:</strong> We never store credit/debit card information on our servers.</li>
-            <li><strong>Webhook Verification:</strong> All payment confirmations are cryptographically verified using HMAC-SHA256 signatures.</li>
-            <li><strong>Secure Communication:</strong> All data in transit is encrypted via HTTPS/TLS.</li>
-            <li><strong>Test Mode:</strong> During development, test payments are used — no real money is processed until live mode is activated.</li>
-        </ul>
-        <div class="highlight">
-            ✓ Your payment data is 100% handled by Razorpay. Novelxplin only receives a payment confirmation notification.
-        </div>
-    </div>
-
-</div>
-
-<footer>
-    <p style="font-size:15px; font-weight:600; margin-bottom:8px; color:var(--text)">Novelxplin</p>
-    <p>Digital Content &amp; Community Subscription Platform</p>
-    <p style="margin-top:8px">
-        <a href="https://t.me/Novelxplin" target="_blank" style="color:var(--accent-light)">Telegram</a> &nbsp;·&nbsp;
-        <a href="mailto:bhuimharniteshbhuimhar@gmail.com" style="color:var(--accent-light)">Email</a> &nbsp;·&nbsp;
-        <a href="https://wa.me/917718906857" target="_blank" style="color:#10b981">WhatsApp</a>
-    </p>
-    <p style="margin-top:16px; font-size:12px;">&copy; 2026 Novelxplin. All rights reserved. | Ulhasnagar, Maharashtra, India</p>
-</footer>
+    <footer>&copy; 2026 Novelxplin Tech Solutions. All rights reserved.</footer>
 
 </body>
 </html>
